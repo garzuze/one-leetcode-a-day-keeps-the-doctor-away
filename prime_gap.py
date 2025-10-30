@@ -16,16 +16,10 @@ def is_prime(number):
     return True
 
 def gap(g, m, n):
-    primes = []
+    prev_prime = 0
     for i in range(m, n + 1):
         if is_prime(i):
-            primes.append(i)
-    
-    for index, prime in enumerate(primes):
-        if index == len(primes) - 1:
-            return None
-        if primes[index + 1] == prime + g:
-            return [prime, primes[index + 1]]
-            
-result = gap(6,100,110)
-print(result)
+            if i - prev_prime == g:
+                return [prev_prime, i]
+            prev_prime = i
+    return None

@@ -1,1 +1,1 @@
-print(i)
+a*b for a, b in combinations

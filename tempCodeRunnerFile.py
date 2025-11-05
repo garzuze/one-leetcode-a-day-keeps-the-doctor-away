@@ -1,1 +1,0 @@
-a*b for a, b in combinations

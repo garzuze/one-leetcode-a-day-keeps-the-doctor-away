@@ -1,1 +1,2 @@
-string
+        print(count)
+        print(indexes)

@@ -5,7 +5,7 @@ class Solution:
         if self.count > 10:
             return False
         for number in str(n):
-            sum += pow(int(number), 2)
+            sum += int(number) ** 2
         if sum == 1:
             return True
         else:

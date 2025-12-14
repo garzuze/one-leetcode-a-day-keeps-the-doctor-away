@@ -1,34 +1,49 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        s1_len = len(s1)
-        window = 0
-        occur = {}
-        right = 0
+        if len(s1) > len(s2):
+            return False
 
-        for ch in s1:
-            occur[ch] = occur.get(ch, 0) + 1
+        LETTERS_IN_ALPHABET = 26
 
-        backup = occur.copy()
+        s1_map = [0] * LETTERS_IN_ALPHABET
+        s2_map = [0] * LETTERS_IN_ALPHABET
 
-        while right < len(s2):
-            if s2[right] in occur and occur[s2[right]] > 0:
-                window += 1
-                occur[s2[right]] -= 1
-                if window == s1_len:
-                    return True
-            elif (
-                window > 0
-                and s2[right] not in occur
-                or s2[right] in occur
-                and occur[s2[right]] == 0
-            ):
-                right -= window
-                window = 0
-                occur = backup.copy()
+        for i in range(len(s1)):
+            s1_map[ord(s1[i]) - ord('a')] += 1
+            s2_map[ord(s2[i]) - ord('a')] += 1
+        
+        matches = 0
 
-            right += 1
+        for i in range(LETTERS_IN_ALPHABET):
+            matches += (1 if s1_map[i] == s2_map[i] else 0)
 
-        return set(occur.values()) == {0}
+        left = 0
+
+        for right in range(len(s1), len(s2)):
+            if matches == LETTERS_IN_ALPHABET:
+                return True
+
+            index = ord(s2[right]) - ord('a')
+
+            s2_map[index] += 1
+
+            if s1_map[index] == s2_map[index]:
+                matches += 1
+            elif s1_map[index] + 1 == s2_map[index]:
+                matches -= 1
+            
+            index = ord(s2[left]) - ord('a')
+
+            s2_map[index] -= 1
+
+            if s1_map[index] == s2_map[index]:
+                matches += 1
+            elif s1_map[index] - 1 == s2_map[index]:
+                matches -= 1
+
+            left += 1
+
+        return matches == LETTERS_IN_ALPHABET
 
 
 s = Solution()

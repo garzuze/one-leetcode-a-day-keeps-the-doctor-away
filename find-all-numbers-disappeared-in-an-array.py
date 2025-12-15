@@ -1,12 +1,14 @@
 from typing import List
 
-# first try, decent performance
+
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        arr_range = set([i + 1 for i in range(len(nums))])
+        nums_set = set(nums)
+        nums_range = len(nums)
+        final = []
 
-        for num in nums:
-            if num in arr_range:
-                arr_range.remove(num)
+        for i in range(1, nums_range + 1):
+            if i not in nums_set:
+                final.append(i)
 
-        return list(arr_range)
+        return final

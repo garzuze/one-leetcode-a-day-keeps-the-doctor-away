@@ -4,33 +4,21 @@ from typing import List
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
         greater_map = {}
-        result = []
-        can_be = []
+        greater_stack = []
 
-        j = len(nums2) - 1
-        greater_map[nums2[j]] = -1
+        for i in range(len(nums2) - 1, -1, -1):
+            while greater_stack and greater_stack[-1] <= nums2[i]:
+                greater_stack.pop()
 
-        for i in range(len(nums2) - 2, -1, -1):
-            can_be.append(nums2[j])
-
-            while can_be[-1] <= nums2[i]:
-                can_be.pop()
-                if len(can_be) == 0:
-                    break
-            
-            if len(can_be) == 0:
-                greater_map[nums2[i]] = -1
+            if greater_stack:
+                greater_map[nums2[i]] = greater_stack[-1]
             else:
-                greater_map[nums2[i]] = can_be[-1]
+                greater_map[nums2[i]] = -1
             
-            j -= 1
+            greater_stack.append(nums2[i])
 
 
-        for num in nums1:
-            result.append(greater_map[num])
-
-        return result
-
+        return [greater_map[num] for num in nums1]
 
 s = Solution()
 print(s.nextGreaterElement([4, 1, 2], [1, 3, 4, 2]))

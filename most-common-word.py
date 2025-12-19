@@ -1,12 +1,14 @@
 from typing import List
+from re import findall
 
+# 0ms beats 100% 👏
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        formatted = "".join(char.lower() if char.isalpha() or char.isspace() else " " for char in paragraph).split()
+        formatted = findall(r"\w+", paragraph.lower())
         banned_set = set(banned)
         freq = {}
 
-        most_frequent = float('-inf')
+        most_frequent = float("-inf")
         most_frequent_word = ""
 
         for word in formatted:
@@ -15,5 +17,5 @@ class Solution:
                 if freq[word] > most_frequent:
                     most_frequent = freq[word]
                     most_frequent_word = word
-        
+
         return most_frequent_word

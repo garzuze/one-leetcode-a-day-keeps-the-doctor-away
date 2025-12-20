@@ -3,19 +3,15 @@ from typing import List
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
         freq = {}
-        sequences = [0]
-        result = 0
-        nums_set = set(nums)
-
-        if len(nums_set) == 1:
-            return 0
 
         for i in range(len(nums)):
             freq[nums[i]] = freq.get(nums[i], 0) + 1
 
-        for num in nums_set:
-            if num + 1 in freq:
-                result = freq.get(num, 0) + freq.get(num + 1, 0)
-                sequences.append(result)
+        result = 0
+        for key in freq.keys():
+            if key + 1 in freq:
+                sequence = freq.get(key) + freq.get(key + 1)
+                if sequence > result:
+                    result = sequence
         
-        return max(sequences)
+        return result

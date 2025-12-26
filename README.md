@@ -2,9 +2,8 @@
 
 This is just a dump repo to store my LeetCode solutions and improve them when possible. 
 Since I am not actively grinding, I usually choose one topic and try to solve any question related to it.
-When I have more time, I pick one problem from the NeetCode 150 curated lists. 
-I'll keep a mirror of my progress in the NeetCode 150 list here.
-
+When I have more time, I pick one problem from NeetCode's curated lists. 
+I'll keep a mirror of my progress in the NeetCode 150 here.
 
 ![](https://leetcard.jacoblin.cool/garzuze?ext=heatmap&theme=nord)
 

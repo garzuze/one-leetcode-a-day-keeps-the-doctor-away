@@ -198,7 +198,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 - [ ] Rotate Image
 - [ ] Spiral Matrix
 - [ ] Set Matrix Zeroes
-- [ ] Happy Number
+- [x] Happy Number
 - [ ] Plus One
 - [ ] Pow(x, n)
 - [ ] Multiply Strings
@@ -206,10 +206,10 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 
 ## Bit Manipulation
 
-- [ ] Single Number
-- [ ] Number of 1 Bits
+- [x] Single Number
+- [x] Number of 1 Bits
 - [ ] Counting Bits
 - [ ] Reverse Bits
-- [ ] Missing Number
+- [x] Missing Number
 - [ ] Sum of Two Integers
 - [ ] Reverse Integer

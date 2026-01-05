@@ -7,7 +7,7 @@ class Solution:
         nums.sort()
 
         for pair in zip(nums[::2], nums[1::2]):
-            if len(set(pair)) != 1:
+            if pair[0] != pair[1]:
                 return False
 
         return True

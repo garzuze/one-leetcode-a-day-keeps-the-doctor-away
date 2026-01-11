@@ -19,7 +19,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 - [x] Top K Frequent Elements
 - [x] Encode and Decode Strings
 - [x] Product of Array Except Self
-- [ ] Valid Sudoku
+- [x] Valid Sudoku
 - [x] Longest Consecutive Sequence
 
 ## Two Pointers

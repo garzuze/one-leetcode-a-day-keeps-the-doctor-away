@@ -51,7 +51,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 ## Binary Search
 
 - [x] Binary Search
-- [ ] Search a 2D Matrix
+- [x] Search a 2D Matrix
 - [ ] Koko Eating Bananas
 - [ ] Find Minimum In Rotated Sorted Array
 - [ ] Search In Rotated Sorted Array

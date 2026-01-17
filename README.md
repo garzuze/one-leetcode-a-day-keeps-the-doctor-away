@@ -54,7 +54,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 - [x] Search a 2D Matrix
 - [x] Koko Eating Bananas
 - [x] Find Minimum In Rotated Sorted Array
-- [ ] Search In Rotated Sorted Array
+- [x] Search In Rotated Sorted Array
 - [ ] Time Based Key Value Store
 - [ ] Median of Two Sorted Arrays
 

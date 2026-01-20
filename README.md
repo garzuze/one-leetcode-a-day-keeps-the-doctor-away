@@ -43,7 +43,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 
 - [x] Valid Parentheses
 - [x] Min Stack
-- [ ] Evaluate Reverse Polish Notation
+- [x] Evaluate Reverse Polish Notation
 - [x] Daily Temperatures
 - [ ] Car Fleet
 - [ ] Largest Rectangle In Histogram

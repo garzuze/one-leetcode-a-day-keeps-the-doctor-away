@@ -42,9 +42,9 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 ## Stack
 
 - [x] Valid Parentheses
-- [ ] Min Stack
+- [x] Min Stack
 - [ ] Evaluate Reverse Polish Notation
-- [ ] Daily Temperatures
+- [x] Daily Temperatures
 - [ ] Car Fleet
 - [ ] Largest Rectangle In Histogram
 

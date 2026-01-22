@@ -45,7 +45,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 - [x] Min Stack
 - [x] Evaluate Reverse Polish Notation
 - [x] Daily Temperatures
-- [ ] Car Fleet
+- [x] Car Fleet
 - [ ] Largest Rectangle In Histogram
 
 ## Binary Search

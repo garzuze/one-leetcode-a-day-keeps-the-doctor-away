@@ -208,7 +208,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 
 - [x] Single Number
 - [x] Number of 1 Bits
-- [ ] Counting Bits
+- [x] Counting Bits
 - [ ] Reverse Bits
 - [x] Missing Number
 - [ ] Sum of Two Integers

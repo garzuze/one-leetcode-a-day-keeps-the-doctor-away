@@ -3,12 +3,18 @@ from typing import List
 
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        result = letters[0]
+        left = 0
+        right = len(letters) - 1
+        result = None
 
-        for ch in letters:
-            if ch > target and ch < result:
-                result = ch
-            if result <= target and ch > target:
-                result = ch
+        while left <= right:
+            mid = (left + right) // 2
+            if letters[mid] <= target:
+                left = mid + 1
+            else:
+                if result is None:
+                    result = letters[mid]
+                result = min(result, letters[mid])
+                right = mid - 1
 
-        return result
+        return letters[0] if result is None else result

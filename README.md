@@ -26,7 +26,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 
 - [x] Valid Palindrome
 - [x] Two Sum II Input Array Is Sorted
-- [ ] 3Sum
+- [x] 3Sum
 - [x] Container With Most Water
 - [ ] Trapping Rain Water
 

@@ -35,7 +35,7 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 - [x] Best Time to Buy And Sell Stock
 - [x] Longest Substring Without Repeating Characters
 - [x] Longest Repeating Character Replacement
-- [ ] Permutation In String
+- [x] Permutation In String
 - [x] Minimum Window Substring
 - [ ] Sliding Window Maximum
 
@@ -60,11 +60,11 @@ I'll keep a mirror of my progress in the NeetCode 150 here.
 
 ## Linked List
 
-- [ ] Reverse Linked List
-- [ ] Merge Two Sorted Lists
-- [ ] Linked List Cycle
-- [ ] Reorder List
-- [ ] Remove Nth Node From End of List
+- [x] Reverse Linked List
+- [x] Merge Two Sorted Lists
+- [x] Linked List Cycle
+- [x] Reorder List
+- [x] Remove Nth Node From End of List
 - [ ] Copy List With Random Pointer
 - [ ] Add Two Numbers
 - [ ] Find The Duplicate Number

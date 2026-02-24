@@ -4,25 +4,17 @@ from typing import List
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         result = []
-        subset = []
-        seen = set()
-        self.backtrack(0, nums, result, subset, seen)
+        nums.sort()
 
+        def backtrack(start: int, sub_set: List[int]):
+            result.append(list(sub_set))
+
+            for i in range(start, len(nums)):
+                if i > start and nums[i - 1] == nums[i]:
+                    continue
+                sub_set.append(nums[i])
+                backtrack(i + 1, sub_set)
+                sub_set.pop()
+
+        backtrack(0, [])
         return result
-
-    def backtrack(self, i, arr: List[int], result: List[List[int]], subset: List[int], seen):
-        if i == len(arr):
-            new_sub = sorted(subset)
-            tup_sub = tuple(new_sub)
-
-            if tup_sub not in seen:
-                result.append(list(new_sub))
-
-            seen.add(tup_sub)
-            return
-
-        subset.append(arr[i])
-        self.backtrack(i + 1, arr, result, subset, seen)
-
-        subset.pop()
-        self.backtrack(i + 1, arr, result, subset, seen)

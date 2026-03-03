@@ -11,11 +11,9 @@ class Solution:
         result = []
 
         for i in range(len(queries)):
-            for j in range(len(p)):
-                if p[j] == queries[i]:
-                    result.append(j)
-                    del p[j]
-                    break
-            p = [queries[i]] + p
+            index = p.index(queries[i])
+            result.append(index)
+            value = p.pop(index)
+            p.insert(0, value)
 
         return result

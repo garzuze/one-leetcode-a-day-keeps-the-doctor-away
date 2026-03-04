@@ -1,14 +1,23 @@
 from typing import List
 
 class Solution:
+    def __init__(self):
+        self.result = []
+
     def validStrings(self, n: int) -> List[str]:
-        result = []
-        for i in range(2 ** n):
-            bin_rep = bin(i)[-n:].replace("b", "")
-            while len(bin_rep) < n:
-                bin_rep = "0" + bin_rep
+        self.result = []
 
-            if "00" not in bin_rep:
-                result.append(bin_rep)
+        self.backtrack("0", n)
+        self.backtrack("1", n)
 
-        return result
+        return self.result
+
+    def backtrack(self, bin_str: str, length: int):
+        if len(bin_str) == length:
+            self.result.append(bin_str)
+            return
+
+        self.backtrack(bin_str + "1", length)
+
+        if bin_str[-1] == "1":
+            self.backtrack(bin_str + "0", length)

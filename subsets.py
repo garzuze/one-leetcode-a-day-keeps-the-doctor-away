@@ -2,16 +2,20 @@ from typing import List
 
 
 class Solution:
+    def __init__(self):
+        self.result = []
+
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        result = []
+        self.result = []
 
-        def backtrack(start: int, sub_set: List[int]):
-            result.append(list(sub_set))
+        self.backtrack(0, [], nums)
 
-            for i in range(start, len(nums)):
-                sub_set.append(nums[i])
-                backtrack(i + 1, sub_set)
-                sub_set.pop()
+        return self.result
 
-        backtrack(0, [])
-        return result
+    def backtrack(self, start: int, curr: List[int], nums: List[int]):
+        self.result.append(list(curr))
+
+        for i in range(start, len(nums)):
+            curr.append(nums[i])
+            self.backtrack(i + 1, curr, nums)
+            curr.pop()

@@ -1,0 +1,14 @@
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        freq = {}
+        for i in range(len(s)):
+            freq[s[i]] = freq.get(s[i], 0) - 1
+            freq[t[i]] = freq.get(t[i], 0) + 1
+        
+        diff = 0
+
+        for f in freq.values():
+            if f > 0:
+                diff += f
+        
+        return diff

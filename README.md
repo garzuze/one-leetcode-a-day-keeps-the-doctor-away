@@ -5,6 +5,9 @@ Since I am not actively grinding, I usually choose one topic and try to solve an
 When I have more time, I pick one problem from NeetCode's curated lists. 
 I'll keep a mirror of my progress in the NeetCode 150 here.
 
+> [!NOTE]
+> As of 05/06/2026 I'll be doing all questions in Java, instead of Python, since it's the main language in my current job. In the long term I plan to rewrite some of my previous python LeetCodes in Java.
+
 ![](https://leetcard.jacoblin.cool/garzuze?ext=heatmap&theme=nord)
 
 > "We are what we repeatedly do. Excellence, then, is not an act, but a habit"

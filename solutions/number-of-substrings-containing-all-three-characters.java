@@ -1,24 +1,17 @@
-import java.util.HashMap;
-import java.util.Map;
-
-
 class Solution {
     public int numberOfSubstrings(String s) {
-        HashMap<Character, Integer> count = new HashMap<>(3);
+        int[] count = new int[3];
+        char[] chars = s.toCharArray();
         int left = 0;
         int right = 0;
         int result = 0;
 
-        while (right < s.length()) {
-            count.put(s.charAt(right), count.getOrDefault(s.charAt(right), 0) + 1);
-            
-            while (hasAll(count)) {
-                count.put(
-                    s.charAt(left),
-                    count.get(s.charAt(left)) - 1
-                );
+        while (right < chars.length) {
+            count[chars[right] - 'a']++;
 
-                result += s.length() - right;
+            while (hasAll(count)) {
+                count[chars[left] - 'a']--;
+                result += chars.length - right;
                 left++;
             }
 
@@ -28,13 +21,13 @@ class Solution {
         return result;
     }
 
-    private boolean hasAll(HashMap<Character, Integer> count) {
-        if (count.size() < 3) {
+    private boolean hasAll(int[] count) {
+        if (count.length < 3) {
             return false;
         }
 
-        for (Map.Entry<Character, Integer> entry : count.entrySet()) {
-            if (entry.getValue() == null || entry.getValue() <= 0) {
+        for (int c : count) {
+            if (c == 0) {
                 return false;
             }
         }

@@ -1,50 +1,38 @@
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-
 class Solution {
     public int minOperations(int[] nums, int[] numsDivide) {
-        int min = Integer.MAX_VALUE;
-        int result = 0;
-        Map<Integer, Integer> count = new TreeMap<>();
-        Set<Integer> numsDivideSet = new HashSet<>();
+        int gcd = numsDivide[0];
 
-        for (int n : numsDivide) {
-            min = Math.min(min, n);
-            numsDivideSet.add(n);
-        }
-        
-        for (int n : nums) {
-            count.put(n, count.getOrDefault(n, 0) + 1);
+        for (int num : numsDivide) {
+            gcd = getGcd(gcd, num);
         }
 
-        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
-            if (entry.getKey() > min) {
-                return -1;
-            } else {
-                if (!canDivide(numsDivideSet, entry.getKey())) {
-                    result += entry.getValue();
-                } else {
-                    return result;
-                }
+        int minGcd = Integer.MAX_VALUE;
+
+        for (int num : nums) {
+            if (gcd % num == 0) {
+                minGcd = Math.min(minGcd, num);
             }
-
         }
-        
-        return -1;
+
+        if (minGcd == Integer.MAX_VALUE) {
+            return -1;
+        }
+
+        int result = 0;
+
+        for (int num : nums) {
+            if (num < minGcd) {
+                result++;
+            }
+        }
+
+        return result;
     }
 
-    private boolean canDivide(Set<Integer> numsSet, int n) {
-        if (n == 0) return false;
-
-        for (Integer num : numsSet) {
-            if (num % n != 0) {
-                return false;
-            }
-        }
-
-        return true;
+    private int getGcd(int a, int b) {
+        if (a > b)  return getGcd(b, a);
+        if (b % a == 0)
+            return a;
+        return getGcd(b % a, a);
     }
 }

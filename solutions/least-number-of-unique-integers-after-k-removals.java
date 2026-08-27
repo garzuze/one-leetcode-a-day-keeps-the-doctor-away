@@ -1,5 +1,3 @@
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -12,22 +10,22 @@ class Solution {
             count.put(n, count.getOrDefault(n, 0) + 1);
         }
 
-        List<Map.Entry<Integer, Integer>> asc = new ArrayList<>(count.entrySet());
+        int[] freqMap = new int[arr.length + 1];
 
-        asc.sort((e1, e2) -> e1.getValue().compareTo(e2.getValue()));
-        
+        for (int f : count.values()) {
+            freqMap[f]++;
+        }
+
         int result = count.size();
 
-        for (Map.Entry<Integer, Integer> e : asc) {
-            int key = e.getKey();
-            while (k > 0 &&  count.get(key) > 0) {
-                count.put(key, count.get(key) - 1);
-                k--;
+        for (int freq = 1; freq < freqMap.length; freq++) {
+            if (k < freq) {
+                break;
             }
 
-            if (count.get(key) == 0) {
-                result--;
-            }
+            int take = Math.min(freqMap[freq], k / freq);
+            k -= take * freq;
+            result -= take;
         }
 
         return result;

@@ -1,38 +1,21 @@
 import java.util.Arrays;
 
 class Solution {
-    public int[] getStrongest(int[] arr, int k) {
+    public int[] getStrongest(int[] arr, int l) {
         Arrays.sort(arr);
         int n = arr.length;
         int m = ((n - 1) / 2);
         int centre = arr[m];
 
         int[] diffs = new int[n];
-        int[] map = new int[Math.abs(arr[n - 1] - centre) + 1];
+        int[] result = new int[l];
 
-        for (int i = 0; i < n; i++) {
-            diffs[i] = Math.abs(arr[i] - centre);
-        }
-        
-        int[] result = new int[k];
-
-        n--;
-        int j = 0;
-        for (int i = 0; i < k; i++) {
-            int chosen = 0;
-            
-            if (diffs[n] == diffs[j]) {
-                chosen = arr[n] > arr[j] ? n : j;
+        for (int i = 0, j = 0, k = n - 1; i < l; i++) {
+            if (arr[k] > arr[j] && Math.abs(arr[k] - centre) >= Math.abs(arr[j] - centre)) {
+                result[i] = arr[k];
+                k--;
             } else {
-                chosen = diffs[n] > diffs[j] ? n : j;
-            }
-
-            result[i] = arr[chosen];
-            diffs[chosen] = 0;
-
-            if (chosen == n) {
-                n--;
-            } else {
+                result[i] = arr[j];
                 j++;
             }
         }

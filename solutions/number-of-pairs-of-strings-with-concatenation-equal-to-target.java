@@ -1,26 +1,23 @@
+import java.util.Map;
+import java.util.HashMap;
+
 class Solution {
     public int numOfPairs(String[] nums, String target) {
+        Map<String, Integer> count = new HashMap<>();
         int result = 0;
-        StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < nums.length - 1; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                sb.setLength(0);
-                
-                sb.append(nums[i]);
-                sb.append(nums[j]);
-                
-                if (sb.toString().equals(target)) {
-                    result++;
-                }
-                
-                sb.setLength(0);
-                
-                sb.append(nums[j]);
-                sb.append(nums[i]);
-                
-                if (sb.toString().equals(target)) {
-                    result++;
+        for (String n : nums) {
+            count.put(n, count.getOrDefault(n, 0) + 1);
+        }
+
+        for (String n : nums) {
+            if (target.startsWith(n)) {
+                String suffix = target.substring(n.length());
+
+                result += count.getOrDefault(suffix, 0);
+
+                if (n.equals(suffix)) {
+                    result--;
                 }
             }
         }

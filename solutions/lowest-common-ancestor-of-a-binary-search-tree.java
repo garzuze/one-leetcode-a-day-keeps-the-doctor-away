@@ -15,36 +15,20 @@ class TreeNode {
 }
 
 class Solution {
-    List<TreeNode> seenP = new ArrayList();
-    List<TreeNode> seenQ = new ArrayList();
-
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        search(root, p, seenP);
-        search(root, q, seenQ);
+        int max = Math.max(p.val, q.val);
+        int min = Math.min(p.val, q.val);
 
-        for (int i = seenP.size() - 1; i >= 0; i--) {
-            for (int j = seenQ.size() - 1; j >= 0; j--) {
-                if (seenQ.get(j) == seenP.get(i)) {
-                    return seenQ.get(j);
-                }
+        while (root != null) {
+            if (root.val > max) {
+                root = root.left;
+            } else if (root.val < min) {
+                root = root.right;
+            } else {
+                return root;
             }
         }
 
         return null;
-    }
-
-    private boolean search(TreeNode root, TreeNode target, List<TreeNode> seen) {
-        if (root == null || target == null) return false;
-        seen.add(root);
-        
-        if (root.val > target.val) {
-            return search(root.left, target, seen);
-        }
-
-        if (root.val < target.val) {
-            return search(root.right, target, seen);
-        }
-
-        return true;
     }
 }

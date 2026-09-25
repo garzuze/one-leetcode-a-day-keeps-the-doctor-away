@@ -8,28 +8,16 @@ class ListNode {
 
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        ListNode dummy = head;
-        int n = 0;
-        
-        while (dummy != null) {
-            dummy = dummy.next;
-            n++;
+        if (head.next == null) return null;
+
+        ListNode fast = head.next.next;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
         }
-
-        if (n == 1) return null;
-        
-        int mid = n / 2;
-
-        n = 0;
-
-        dummy = head;
-        while (dummy != null) {
-            if (n + 1 == mid) {
-                dummy.next = dummy.next.next;
-            }
-            dummy = dummy.next;
-            n++;
-        }
+        slow.next = slow.next.next;
 
         return head;
     }

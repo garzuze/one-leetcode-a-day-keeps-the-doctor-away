@@ -16,18 +16,15 @@ class Solution {
             pair_left[i] = s.next();
             pair_right[i] = s.next();
         }
-
-        StringBuilder sb = new StringBuilder();
         Set<String> seen = new HashSet<>();
+        
         for (int i = 0; i < t; i++) {
-            sb.append(pair_left[i]);
-            sb.append(" ");
-            sb.append(pair_right[i]);
-            seen.add(sb.toString());
-            sb.setLength(0);
+            if (pair_left[i].compareTo(pair_right[i]) < 0) {
+                seen.add(pair_left[i] + " " + pair_right[i]);
+            } else {
+                seen.add(pair_right[i] + " " + pair_left[i]);
+            }
             System.out.println(seen.size());
         }
-        
-
-   }
+    }
 }

@@ -1,36 +1,21 @@
 class Solution {
     public long minCost(String s, int[] cost) {
-        boolean[] seen = new boolean[26];
+        long sum = 0L;
+        long[] count = new long[26];
         char[] chars = s.toCharArray();
         long result = Long.MAX_VALUE;
-        int uniqueCount = 0;
 
-        for (char ch : chars) {
-            if (!seen[ch - 'a']) {
-                seen[ch - 'a'] = true;
-                uniqueCount++;
-            }
+        for (int i = 0; i < chars.length; i++) {
+            count[chars[i] - 'a'] += cost[i];
+            sum += cost[i];
         }
 
-        if (uniqueCount == 1) {
-            return 0L;
-        }
-
-        for (int i = 0; i < seen.length; i++) {
-            if (!seen[i]) {
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] == 0L) {
                 continue;
             }
 
-            char ch = (char) (i + 'a');
-            long curr = 0L;
-
-            for (int j = 0; j < chars.length; j++) {
-                if (chars[j] != ch) {
-                    curr += cost[j];
-                }
-            }
-
-            result = Math.min(result, curr);
+            result = Math.min(result, sum - count[i]);
         }
 
         return result;
